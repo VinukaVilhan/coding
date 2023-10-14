@@ -1,9 +1,7 @@
-#include <iostream>
-#include <string>
-#include <cstring>
+#include "header.h"
+#include "civillians.h"
 
 using namespace std;
-
 class my
 {
     public: //access specifier
@@ -24,6 +22,12 @@ class my
         {
             id = id_num;
             name = name_of_person ;
+        }
+
+        //deconstuctor
+        ~my()
+        {
+            cout << "My destructor called for " << name << endl;
         }
 
         string speak(string speech_name);//outside method
@@ -148,6 +152,7 @@ void superHero::displaySuperHeroInfo()
 }
 
 
+
 int main()
 {
     //create object 1
@@ -207,4 +212,49 @@ int main()
     enemy* enemyPtr = &superVinuka;  // Pointer to the superhero, treated as an enemy
     enemyPtr->attack();  // Calls the superhero's overridden attack function
     cout<<""<<endl;
+
+    int size = 5;
+    int elementsAdded = 0;
+    civillian* civillians = static_cast<civillian*>(malloc(size* sizeof(civillian)));
+
+    char choice = 'y';
+
+    do {
+        if (elementsAdded >= size) {
+            size *= 3;
+            civillian* newCivillians = static_cast<civillian*>(realloc(civillians, size* sizeof(civillian)));
+            if (newCivillians == nullptr) 
+            {
+                cerr << "Memory reallocation failed." << endl;
+                break;
+            }
+            civillians = newCivillians;
+        }
+
+        string name;
+        int age;
+        cout << "Enter the name for civillian No " << (elementsAdded + 1) << ": ";
+        cin >> name;
+        cout << "Enter the age for civillian No " << (elementsAdded + 1) << ": ";
+        cin>>age;
+        civillians[elementsAdded] = civillian(name,age);
+        elementsAdded++;
+
+        cout << "Array is Full. Do you want to add another civillian? (y/n): ";
+        cin >> choice;
+    } while (choice == 'y');
+
+    cout << "Civillians:" << endl;
+    for (int i = 0; i < elementsAdded; i++) 
+    {
+        civillians[i].introduce();
+        
+    }
+
+    
+    
+
+    delete[] civillians;   // Clean up dynamically allocated memory
+
+    return 0;
 }
