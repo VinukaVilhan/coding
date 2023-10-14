@@ -213,7 +213,7 @@ int main()
     enemyPtr->attack();  // Calls the superhero's overridden attack function
     cout<<""<<endl;
 
-    int size = 5;
+    int size = 2;
     int elementsAdded = 0;
     civillian* civillians = static_cast<civillian*>(malloc(size* sizeof(civillian)));
 
@@ -221,6 +221,8 @@ int main()
 
     do {
         if (elementsAdded >= size) {
+            cout << "Array is Full. Do you want to add another civillian? (y/n): ";
+            cin >> choice;
             size *= 3;
             civillian* newCivillians = static_cast<civillian*>(realloc(civillians, size* sizeof(civillian)));
             if (newCivillians == nullptr) 
@@ -240,8 +242,7 @@ int main()
         civillians[elementsAdded] = civillian(name,age);
         elementsAdded++;
 
-        cout << "Array is Full. Do you want to add another civillian? (y/n): ";
-        cin >> choice;
+        
     } while (choice == 'y');
 
     cout << "Civillians:" << endl;
