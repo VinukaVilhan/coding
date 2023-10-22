@@ -40,3 +40,10 @@ class bank
         string safe_location; //floor
 
 };
+
+class security
+{
+    string name;
+    double salary;
+
+};
