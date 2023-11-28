@@ -1,6 +1,7 @@
 #include <stdio.h>
 
-int main() {
+int main()
+{
     int sum, notes;
 
     printf("Enter the sum of money: ");
