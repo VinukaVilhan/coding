@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <math.h>
-#include<stdbool.h>
 
 int square_print(int, int);
-
   
 int main()
 {
@@ -20,22 +18,26 @@ int main()
 
 int square_print(int rows, int columns)
 {
-    for(int x = 0; x < rows; x++ )
+    for(int z = 0; z < rows; z++ )
     {
-            for(int y = 0; y < columns; y++ )
-            {
-                if( (x==y) || (x==(columns - (y+1))) )
+         for(int x = 0; x < rows; x++ )
+        {
+                for(int y = 0; y < columns; y++ )
                 {
-                    printf(".");
-                }
+                    if( (x==y) || (x==(columns - (y+1))) )
+                    {
+                        printf(".");
+                    }
 
-                else
-                {
-                    printf(" ");
+                    else
+                    {
+                        printf(" ");
+                    }
+                    
                 }
-                
-            }
-            printf("\n");
+                printf("\n");
+        }
     }
+   
 }
 
