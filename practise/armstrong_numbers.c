@@ -3,6 +3,7 @@
 
 void length_finder(int*, int*);
 void armstrong_decider(int*, int*, int*, double*, int*);
+double power(int, int);
 
 int main()
 {
@@ -36,7 +37,7 @@ void armstrong_decider(int* count_of_digits, int* modulus, int* dividend, double
     for (int x = 0; x < *count_of_digits; x++)
     { 
         *modulus = *dividend % 10;
-        *sum += pow(*modulus , *count_of_digits);
+        *sum += power(*modulus , *count_of_digits);
         *dividend = *dividend/10;
     }
 
@@ -48,4 +49,14 @@ void armstrong_decider(int* count_of_digits, int* modulus, int* dividend, double
     {
         printf("This is not an Armstrong number");
     }
+}
+
+double power(int modulus, int count_of_digits)
+{
+    double power = 1;
+    for(int x = 0; x < count_of_digits; x++)
+    {
+        power *= modulus;
+    }
+    return power;
 }
