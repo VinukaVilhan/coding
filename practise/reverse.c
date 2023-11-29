@@ -41,6 +41,5 @@ int reverse(int number, int len)
         strcat(num_series,char_converted);
         number /= 10;
     }
-
     printf("%s", num_series);
 }
