@@ -6,8 +6,13 @@ int square_print(int, int);
 int main()
 {
     int number, square_root, rows, columns;
-    printf("Enter Square number: ");
-    scanf("%d", &number);
+
+    do
+    {
+        printf("Enter Square number: ");
+        scanf("%d", &number);
+    } while (number < 9 );
+    
     square_root = sqrt(number);
     rows = square_root;
     columns = square_root;
