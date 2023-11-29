@@ -5,7 +5,8 @@ void find_prime(int num)
     for (int x = 2; x <= num; x++)
     {
         int prime = 1;
-        for(int y = 2; y*y<=x; y++)
+        int square_root= sqrt(x);
+        for(int y = 2; y <= square_root; y++)
         {
             if (x % y == 0)
             {
