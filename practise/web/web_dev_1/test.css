@@ -1,0 +1,130 @@
+body
+{
+  margin:0;
+  background-color: lightblue;
+}
+
+
+table
+{
+  width:100%;
+  border: 1px solid black;
+  min-width: auto;
+  margin:auto;
+}
+ 
+td, th
+  {
+    text-align: left;
+    padding:0.5rem;
+  }
+
+  #train
+  {
+    float:right;
+    display: inline-block;
+    margin:auto;
+    height:auto;
+    width:auto;
+    min-height:5rem;
+    min-width: 5rem;
+  }
+
+  #navbar {
+    background-color: black;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  #navbar a {
+    margin:auto;
+    padding: 1.3%;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.2em;
+    text-decoration: none; /* Change from solid to none */
+    color: white;
+    transition: transform 0.3s;
+    float: left;
+
+  }
+  
+  #navbar a:hover {
+    transform: scale(1.2); /* Add scale prefix */
+  }
+  
+  #rorschach_video
+  {
+    margin:1rem;
+    min-height: 10%;
+    min-width: 10%;
+    width:70%;
+    height:70%;
+  }
+
+  #watchmen_image
+  {
+    margin:1rem;
+    min-height: 20%;
+    min-width: 20%;
+    width:50%;
+    height:50%;
+  }
+
+#container
+{
+  margin: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#container > div
+{
+  flex:1;
+  text-align: center;
+}
+
+#container1
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#base_container
+{
+  padding:1%;
+  background-color:black;
+  display:flex;
+  flex-direction: row;
+}
+
+#base_container > div
+{
+  flex:1;
+  padding:4%;
+}
+
+#contact
+{
+  color: white;
+  font-weight: bold;
+}
+
+#social_media
+{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  
+}
+
+.sm 
+{
+  width: 3em; /* You can adjust this value to the size you want */
+  height: 3em; /* You can adjust this value to the size you want */
+  margin:0.2em;
+  margin-top:7em;
+}

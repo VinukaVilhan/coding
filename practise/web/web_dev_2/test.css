@@ -1,0 +1,103 @@
+/* Define the color scheme for the web page */
+:root {
+    --red: #ff0000;
+    --light-red: #ff8080;
+    --dark-red: #800000;
+    --white: #ffffff;
+    --black: #000000;
+  }
+  
+  /* Style the top navigation bar */
+  #top_nav {
+    display: flex;
+    flex-direction: row;
+  }
+  
+  /* Style the top navigation links */
+  #top_nav > a {
+    padding: 1rem;
+    background-color: var(--light-red);
+    width: 100%;
+    color: var(--white);
+    font-size: 1em;
+    text-decoration: none;
+  }
+  
+  /* Add hover effects for the top navigation links */
+  #top_nav > a:hover {
+    background-color: var(--red);
+  }
+  
+  /* Style the form container */
+  #myForm {
+    margin: 2em;
+    padding: 10%;
+    display: flex;
+    justify-content: flex-start;
+    text-align: center;
+    background-color: var(--red);
+    flex-direction: column;
+  }
+  
+  /* Style the first group of form inputs */
+  #form-group-1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  /* Style the form items */
+  .group-item {
+    margin: 1em;
+  }
+  
+  /* Style the button group */
+  #button-group {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Style the buttons */
+  #button-group > button {
+    padding: 1em;
+    border: none;
+    color: var(--white);
+  }
+  
+  /* Style the submit button */
+  #button-group > button[type="submit"] {
+    background-color: var(--dark-red);
+  }
+  
+  /* Style the reset button */
+  #button-group > button[type="reset"] {
+    background-color: var(--black);
+  }
+  
+  /* Add hover effects for the buttons */
+  #button-group > button:hover {
+    opacity: 0.8;
+  }
+  
+  /* Style the footer */
+  footer {
+    padding: 2em;
+    background-color: var(--black);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  /* Style the footer items */
+  #bottom_nav > div {
+    border: 2px solid var(--white);
+    padding: 10%;
+  }
+  
+
+  #ip
+  {
+    display: flex;
+    flex-direction: row;
+  
+  }

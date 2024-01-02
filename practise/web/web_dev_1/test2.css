@@ -1,0 +1,39 @@
+body
+{
+    margin:0;
+}
+
+#calculator
+{
+    background-color: pink;
+    margin:auto;
+    padding:3%;
+    text-align: center;    
+}
+
+h2
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3em;;
+}
+
+label, p
+{
+    font-size: 1em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+input, label
+{
+    margin:0.4em;
+}
+
+table
+{
+    padding:1rem;
+}
+
+th,td
+{
+    border: 1px solid black;
+}

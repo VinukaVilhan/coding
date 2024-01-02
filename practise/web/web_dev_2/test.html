@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="test.css">
+    </head>
+    <body>
+        <nav id="top_nav">
+            <a href="#homepage">Home</a>
+            <a href="#register">Register</a>
+            <a href="gallert">Gallery</a>
+        </nav>
+
+        <form id = "myForm" action="test.php" onsubmit="return validateForm()">
+            <div class="group-item" id ="form-group-1">
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="username" required>
+                <div  id ="username_error"></div>
+            
+                <label for ="password">Password: </label>
+                <input type="password" id="password" name="password" required>
+                <div id="password_error"></div>
+            </div>
+
+            <div class="group-item" id="form-group-2">
+            <label for="date">Date: </label>
+            <input type="date" id="date" name="date" required>
+            </div>
+
+            <div class="group-item">
+            <label for="email">Email: </label>
+            <input type="email" id="email" name="email" required> 
+            <div class="error" id ="email_error"></div>
+            </div>
+
+            <div class= "group-item" id="button-group">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+        <div id ="ip">
+       
+        <p >Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit voluptatibus nemo dolorum, consectetur quas quia quod nobis voluptatem nihil quidem ipsa laborum sint voluptatum eos architecto commodi exercitationem, amet ullam?</p>
+        <img src="watchmen.jpg">
+    </div>
+
+        <footer>
+            <div id="bottom_nav">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </footer>
+        <script src="test.js"></script>
+    </body>
+</html>

@@ -1,0 +1,86 @@
+body
+{
+    margin:0;
+    background-image: url('watchmen.jpg');
+    background-repeat: repeat;
+    background-size: cover;
+}
+
+.navbar
+{
+    background-color: black;
+    overflow:hidden;
+}
+
+.navbar a
+{
+    float:left;
+    color:white;
+    text-align:center;
+    padding: 1.3%;
+    text-decoration: solid;
+    font-family: fantasy;
+    margin:1rem;
+    font-size: 1.3rem;
+    transition: transform 0.3s;
+}
+
+.navbar a:hover
+{
+    transform:scale(1.2);
+}
+
+#logo_container
+{
+    pointer-events: none;
+}
+
+
+
+/*content for the search bar*/
+
+.box{
+    position: relative;
+}
+
+.input {
+    padding: 10px;
+    width: 80px;
+    height: 80px;
+    background: none;
+    border: 4px solid #ffd52d;
+    border-radius: 50px;
+    box-sizing: border-box;
+    font-family: fantasy;
+    font-size: 1.3rem;
+    color: white;
+    outline: none;
+    transition: .5s;
+}
+.box:hover input{
+    width: 350px;
+    background: #3b3640;
+    border-radius: 10px;
+}
+.box i{
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translate(-50%,-50%);
+    font-size: 26px;
+    color: #ffd52d;
+    transition: .2s;
+}
+.box:hover i{
+    opacity: 0;
+}
+/*content for the search bar*/
+
+#black_space
+{
+    background-color: black;
+    margin:2rem;
+    padding: 10%;
+    position: relative;
+}
+
