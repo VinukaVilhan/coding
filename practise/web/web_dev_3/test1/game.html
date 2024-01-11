@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Game</title>
+        <link rel="stylesheet" href="game.css">
+    </head>
+    <body>
+        <div id ="main">
+            <p id = 'score'>Score: 0</p>
+            <div id = "buttons">
+                <button onclick="easy()" value="easy" id="easy" name="easy">Easy</button>
+                <button onclick="normal()" value="normal" id="normal" name ="normal">Normal</button>
+                <button onclick = "hard()" value="hard" id="hard" name="hard">Hard</button>
+            </div>
+            <div id = "displayWord"></div>
+            <div id = "displayAnswer"></div>
+        </div>
+        <script src="game.js"></script>
+    </body>
+</html>

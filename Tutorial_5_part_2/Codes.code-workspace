@@ -1,0 +1,16 @@
+{
+	"folders": [
+		{
+			"name": "Codes",
+			"path": ".."
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"ostream": "cpp",
+			"iostream": "cpp",
+			"q14": "c",
+			"random": "c"
+		}
+	}
+}
