@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Marathon Registration</title>
+    </head>
+    <style>
+        body
+        {
+            margin:2rem;
+        }
+        div,button
+        {
+            margin:2rem;
+        }
+    </style>
+    <body>
+        <form action="test.php" method="post">
+    <div>
+        <label for="f_name">First Name</label>
+            <input type="text" id="f_name" name="f_name" placeholder="First Name" required>
+
+        <label for="l_name">Last Name</label>
+            <input type="text" id="l_name" name="l_name" placeholder="Last Name" required>
+
+    </div>
+    
+    <div>
+        <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Email">
+        
+        <label for="password">Password</label>
+            <input type="password" id="password" name="password" required placeholder="Password">
+
+    </div>
+        
+        <div>
+            <p>Select a race:</p>
+            <label for="5k">5K marathon</label>
+            <input type="radio" id = "5K" name ="race" value="5K">
+
+            <label for="f_marathon">Full Marathon </label>
+            <input type="radio" id="f_marathon" name="race" value="Full Marathon">
+
+            <lanel for="h_marathon"> Half Marathon </label>
+            <input type="radio" id="h_marathon" name ="race" value="Half Marathon">
+        </div>
+
+        <div>
+            <label for="age">Select Age Category</label>
+            <select id ="age" name="age">
+                <option value="15-20">15-20</option>
+                <option value="20-25">20-25</option>
+                <option value="25-30">25-30</option>
+            </select>
+
+        </div>
+
+        <button> Register </button>
+        
+        </form>
+    </body>
+</html>
