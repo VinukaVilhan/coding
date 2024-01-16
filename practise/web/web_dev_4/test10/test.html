@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Example of right click context menu in pure JS</title>
+  <style>
+         /* context menu */
+
+.context-menu {
+  display: none;
+  position: absolute;
+  z-index: 10;
+  padding: 12px 0;
+  width: 240px;
+  background-color: #fff;
+  border: solid 1px #dfdfdf;
+  box-shadow: 1px 1px 2px #cfcfcf;
+}
+
+.context-menu--active {
+  display: block;
+}
+
+.context-menu__items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.context-menu__item {
+  display: block;
+  margin-bottom: 4px;
+  padding: 4px 12px;
+  color: #0066aa;
+  text-decoration: none;
+}
+
+.context-menu__item:last-child {
+  margin-bottom: 0;
+}
+
+
+.context-menu__item:hover {
+  color: #fff;
+  background-color: #0066aa;
+}
+
+#div1 {
+  background-color:red;
+  height:100px;
+}
+
+#div2 {
+  background-color:green;
+  height:100px;
+}
+  </style>
+</head>
+<body>
+    <div>
+      <nav id="context-menu" class="context-menu">
+        <ul class="context-menu__items">
+          <li class="context-menu__item" id="context-menu-learn" onclick="menuItem1();">
+            Learn
+          </li>
+          <li class="context-menu__item" onclick="menuItem2();">
+            Clear
+          </li>
+          <li class="context-menu__item" onclick="toggleMenuOff();">
+            Close
+          </li>
+        </ul>
+      </nav>
+    </div>
+  <p>Try to right click on this div:</p>
+  <div id="div1" class="div">A Div with a context menu</div>
+<p>  This one does not have a context menu attached, try also a right click:  </p>
+  <div id="div2" class="div">Another Div without a context menu</div>
+  <script src="test.js"></script>
+</body>
+</html>
