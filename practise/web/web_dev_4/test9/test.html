@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>mousemove events relative to page</title>
+  <style>
+    body {
+  padding:10px
+}
+
+.draggable {
+  width:100px;
+  height:100px;
+  background-color:#666;
+  color:white;
+  padding:10px 12px;
+  cursor:move;
+  position:absolute; /* important (all position that's not `static`) */
+}
+  </style>
+</head>
+  <body>
+    <h1>Please click and drag the div below.</h1>
+   <div id="dragMe" class='draggable'>Drag me!</div>
+   <script src="test.js"></script>
+  </body>
+</html>
