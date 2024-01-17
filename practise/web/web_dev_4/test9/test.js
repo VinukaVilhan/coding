@@ -1,6 +1,7 @@
 //function is executed when the page is fully loaded
 window.onload = init;
 
+//stores the currently dragged element
 var selected = null;
 
 //mouse coordinates and element positions
@@ -31,13 +32,21 @@ function DragEvent(event)
     window.addEventListener('mouseup', stopMove);
 }
 
-function move(event) {
+//element moves while the button is pressed
+function move(event) 
+{
+    //current mouse X position
     var newX = event.clientX;
+    //current mouse Y position
     var newY = event.clientY;
+    //horizontal distance mouse has moved
     var dx = newX - oldX;
+    //vertical distance mouse has moved
     var dy = newY - oldY;
 
-    if (selected !== null) {
+    //when the element is being dragged the change position function is being called
+    if (selected !== null) 
+    {
         changePosition(dx, dy);
     }
 
@@ -45,14 +54,21 @@ function move(event) {
     oldY = newY;
 }
 
-function changePosition(dx, dy) {
+
+function changePosition(dx, dy) 
+{
+    //increments the horizontal position
     elemX += dx;
+    //increments the vertical position
     elemY += dy;
+    //sets the elements left and top positions (updated one's)
     selected.style.left = elemX + 'px';
     selected.style.top = elemY + 'px';
 }
 
-function stopMove() {
+//function is triggered when the button is released
+function stopMove() 
+{
     selected = null;
     window.removeEventListener('mousemove', move);
     window.removeEventListener('mouseup', stopMove);
