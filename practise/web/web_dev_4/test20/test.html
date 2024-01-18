@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drag and drop</title>
+     <meta charset="utf-8">
+     <style>
+        .box {
+      border: silver solid;
+      width: 256px;
+      height: 128px;
+      margin: 10px;
+      padding: 5px;
+      float: left;
+    }
+     </style>
+  </head>
+<body>
+  <p id="text" ondragstart="drag(this, event)">Drag and drop browser images in a zone:</p><br/>
+  <img src="https://mainline.i3s.unice.fr/mooc/ABiBCwZ.png" id="cr" 
+       ondragstart="drag(this, event)" alt="Logo Chrome">
+  <img src="https://mainline.i3s.unice.fr/mooc/n7xo93U.png" id="ff" 
+       ondragstart="drag(this, event)" alt="Logo Firefox">
+  <img src="https://mainline.i3s.unice.fr/mooc/ugUmuGQ.png" id="ie" 
+       ondragstart="drag(this, event)" alt="Logo IE">
+  <img src="https://mainline.i3s.unice.fr/mooc/jfrNErz.png" id="op" 
+       ondragstart="drag(this, event)" alt="Logo Opera">
+  <img src="https://mainline.i3s.unice.fr/mooc/gDJCG0l.png" id="sf" 
+       ondragstart="drag(this, event)" alt="Logo Safari"><br/>
+
+
+<!-- ondragover = "return false"
+Prevents Default Drag-and-Drop Actions:
+
+Stops the browser from highlighting the element as a potential drop target.
+Suppresses visual cues like a ghost image of the dragged item.
+Allows for custom drag-and-drop interactions without interference.
+Prevents Text Selection:
+
+Prevents the user from accidentally selecting text within the element while dragging something over it.
+Maintains visual clarity and avoids unintended text highlighting. -->
+
+  <div class="box" ondragover="return false" ondrop="drop(this, event)">
+    <p>Cool Web browsers</p>
+  </div>
+  
+  <div class="box" ondragover="return false" ondrop="drop(this, event)">
+    <p>Web browsers from the 90's</p>
+  </div>
+  <script src="test.js"></script>
+</body>
+</html>
