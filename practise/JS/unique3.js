@@ -8,7 +8,7 @@ function countUniqueValues(array) {
             array[i] = array[j];
         }
     }
-
+    // the index of the i + 1
     return i + 1;
 }
 
