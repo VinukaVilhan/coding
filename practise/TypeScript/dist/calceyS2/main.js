@@ -1,0 +1,16 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var arrayStack_1 = require("../../src/arrayStack");
+var stack = new arrayStack_1.default();
+stack.push(25);
+stack.push(50);
+stack.push(75.5);
+console.log(stack);
+console.log('popping the top element: ', stack.pop());
+console.log(stack);
+console.log('peek the top element: ', stack.peek());
+console.log(stack);
+console.log("check if it is empty: ", stack.isEmpty());
+console.log(stack);
+console.log('Clear the aray: ', stack.clear());
+console.log(stack);
