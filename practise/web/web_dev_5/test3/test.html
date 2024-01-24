@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Drawing balls</title>
+  <style>
+    canvas {
+  border: 1px solid black;
+}
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas"  width="400" height="400"></canvas>
+  <script>
+    var canvas, ctx, w, h;
+    var ball1 = {
+        x:100,
+        y:100,
+        radius:30,
+        color:'blue',
+        speedX:2,
+        speedY:1
+    }
+
+    var ball2 = {
+        x:200,
+        y:250,
+        radius:25,
+        color:'green',
+        speedX:5,
+        speedY:3
+    }
+
+    var ball3 = {
+        x:60,
+        y:130,
+        radius:55,
+        color:'purple',
+        speedX:3,
+        speedY:1
+    }
+
+    var player = {
+        x:30,
+        y:30,
+        width:20,
+        height:20,
+        color:'red'
+    }
+
+    window.onload = function init()
+    {
+        canvas = document.querySelector('#myCanvas');
+
+        w = canvas.width;
+        h = canvas.height;
+
+        ctx  = canvas.getContext('2d');
+
+        mainLoop();
+    }
+
+    function mainLoop()
+    {
+        //clear the canvas
+        ctx.clearRect(0,0,w,h);
+
+        drawFilledRectangle(player);
+        drawFilledCircle(ball1);
+        drawFilledCircle(ball2);
+        drawFilledCircle(ball3);
+
+        moveBall(ball1);
+        moveBall(ball2);
+        moveBall(ball3);
+
+        requestAnimationFrame(mainLoop);
+    }
+
+    function drawFilledCircle(circ)
+    {
+        ctx.save();
+
+        ctx.translate(circ.x, circ.y);
+
+        ctx.fillStyle = circ.color;
+
+        ctx.beginPath();
+
+        ctx.arc(0,0, circ.radius, 0, 2*Math.PI);
+
+        ctx.fill();
+
+        ctx.restore();
+    }
+
+    function drawFilledRectangle(rect)
+    {
+        ctx.save();
+
+        ctx.translate(rect.x, rect.y);
+
+        ctx.fillStyle = rect.color;
+
+        ctx.fillRect(0,0, rect.width, rect.height);
+
+        ctx.restore();
+    }
+
+    function moveBall(b)
+    {
+        b.x += b.speedX;
+        b.y += b.speedY;
+
+        testCollisionWithWalls(b);
+    }
+
+    function testCollisionWithWalls(ball)
+    {
+
+        //1.horizontal walls
+        //collision with the right wall
+        if((ball.x + ball.radius) > w)
+        {
+            ball.speedX =- ball.speedX;
+
+            //put the ball on the collision point
+            ball.x = w - ball.radius;
+        }
+        //collision with the left wall
+        else if((ball.x - ball.radius) < 0 )
+        {
+            ball.speedX =- ball.speedX;
+
+            //put the ball on the collision point
+            ball.x = ball.radius;
+        }
+
+
+        //2. vertical walls
+        //down wall
+        if((ball.y + ball.radius) > h)
+        {
+            ball.speedY =- ball.speedY;
+
+            //put the ball on collision point
+            ball.y = h - ball.radius;
+        }
+        //top wall
+        else if((ball.y + ball.radius) < 0 )
+        {
+            ball.speedY =- ball.speedY;
+
+            ball.y = ball.radius;
+        }
+        
+    }
+
+  </script>
+</body>
+</html>

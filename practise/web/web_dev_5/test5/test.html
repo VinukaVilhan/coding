@@ -1,0 +1,70 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <title>Good way to get the mouse
+    position in a canvas</title>
+    <meta charset="utf-8">
+    <style>
+      body {
+        margin: 20px;
+        padding: 0px;
+      }
+
+      canvas {border:1px solid black};
+    </style>
+  </head>
+  <body>
+    Move the mouse cursor to the
+    top left corner of the canvas:<p></p>
+    <p>Instead of (0, 0), you will see coordinates relative to the window object (page)</p>
+    <canvas id="myCanvas" width="300" height="200"></canvas>
+    <script>
+        var canvas, ctx, mousePos, mouseButton;
+
+        window.onload = function init()
+        {
+            canvas = document.querySelector('#myCanvas');
+
+            ctx = canvas.getContext('2d');
+
+            canvas.addEventListener('mousemove', function(evt)
+            {
+                mousePos = getMousePos(canvas, evt);
+                var message ="Mouse position: " + mousePos.x + ',' + mousePos.y;
+
+                writeMessage(canvas, message);
+            }, false);
+
+            canvas.addEventListener('mouseup', function(evt)
+            {
+                var message = "Mouse up at position: " + mousePos.x + ', ' + mousePos.y;
+                writeMessage(canvas, message);
+            }, false);
+        };
+
+        function writeMessage(canvas, message)
+        {
+            ctx.save();
+            //Cleans the canvas
+            ctx.clearRect(0,0, canvas.width, canvas.height);
+            ctx.font = '18pt Calibri';
+            ctx.fillStyle = 'black';
+            ctx.fillText(message,10,25);
+            ctx.restore();
+        }
+
+        function getMousePos(canvas, evt)
+        {
+            //Gets the canvas's position and dimensions relative to the viewport.
+            var rect = canvas.getBoundingClientRect();
+
+            return {
+                // Subtracts the canvas's left position from the mouse's horizontal position within the viewport.
+                x: evt.clientX  - rect.left,
+                //: Subtracts the canvas's top position from the mouse's vertical position within the viewport.
+                y: evt.clientY - rect.top
+            };
+        }
+    </script>
+  </body>
+</html>
