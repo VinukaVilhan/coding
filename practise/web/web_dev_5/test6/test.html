@@ -1,0 +1,34 @@
+<html>
+    <head></head>
+    <body>
+        <button id="myBtn">click</button>
+        <script>
+            var b = document.querySelector("#myBtn");
+            b.addEventListener('click', function(evt) 
+            {
+                alert("Button clicked");
+            });
+
+            window.onkeydown = function(evt) {
+  console.log("key = " + evt.key);
+}
+
+window.onmousedown = function(evt) {
+  document.body.innerHTML += "button = " + evt.mouse.button+ "<br>";
+
+}
+
+var persons = [
+  {name:'Michel', age:51},
+  {name:'Henri', age:20},
+  {name:'Francois', age:29}
+];
+
+
+persons.forEach(function(person, index, array)
+{
+    document.body.innerHTML += "the name of the "+ index + " st man is " + person.name + ". The age is " + person.age +" . he could be gound on the array which is " + array.length + " long" + "<br>";
+})
+        </script>
+    </body>
+</html>
