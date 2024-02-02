@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript OOP: methods</title>
+  </head>
+  <body>
+    <button onclick="dvSpeak();">Speak</button>
+    <script>
+        var person = 
+        {
+            race:'human',
+            job:'villain',
+            talk:function()
+            {
+                return 'come to the dark side LUKE!';
+            },
+        
+            describe: function()
+            {
+                return "I'm a "+ this.race + " and I'm a "+ this.job + " in a series of movies" ;
+            }
+    }
+
+    function dvSpeak()
+    {
+        document.body.innerHTML += '<p>Dark vador describes himself:' + person.describe(); + '</p>'
+        document.body.innerHTML += '<p> Dark vador says '+ person.talk(); + '</p>';
+    }
+    </script>
+    </body>
+</html>
