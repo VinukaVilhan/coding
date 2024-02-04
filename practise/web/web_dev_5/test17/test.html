@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript OOP: methods</title>
+  </head>
+  <body>
+    <p>Look at the JS code. This time we created an empty object and added properties and methods afterwards.</p>
+    <button onclick='dvSpeak();'>Make Dark Vador speak!</button>
+    <button onclick="deleteSomeProperties()">Delete some of Dark Vador's properties</button>
+    <script>
+        var darkVador = {};
+
+        darkVador.race = 'human';
+        darkVador.job = 'villain';
+        darkVador.talk = function() {
+            return 'come to the dark side, Luke!' + this.breathe();
+        };
+
+        darkVador.describeYourself = function() {
+            return "I'm a " + this.race 
+            + " and I'm a " + this.job 
+            + " in a series of movies!" + this.breathe();
+        };
+
+        darkVador.breathe = function() {
+            return ".....shhhhhhhhh.....";
+        };
+
+
+        function dvSpeak() {
+        document.body.innerHTML += '<p>Dark Vador describes himself: ' + darkVador.describeYourself(); + '</p>';  document.body.innerHTML += '<p>Dark Vador says: ' + darkVador.talk(); + '</p>';
+        }
+
+        function deleteSomeProperties() {
+  delete darkVador.race;
+  delete darkVador.job;
+}
+
+
+    </script>
+    </body>
+</html>

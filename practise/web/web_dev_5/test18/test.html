@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript OOP: create objects</title>
+  </head>
+  <body>
+    <p>Look at the JS code. This time we created multiple objects using a "constructor function.</p>
+ <p>   
+   <button onclick='makeHeroesSpeak();'>Make Star Wars heroes speak!</button>
+    </p>
+    <script>
+        function Hero(name, side)
+        {
+            this.name = name;
+            this.side = side;
+
+            this.speak = function()
+            {
+                return "<p>My name is " + this.name +", I'm with the " + this.side + ".</p>";
+            }
+        }
+
+        var darkVador = new Hero("Dark vador", "empire");
+        var luke = new Hero("Luke Skywalker", "rebels");
+        var ianSolo = new Hero('Ian Solo', 'rebels');
+
+        function makeHeroesSpeak()
+        {
+            document.body.innerHTML += darkVador.speak();
+            document.body.innerHTML += luke.speak();
+            document.body.innerHTML += ianSolo.speak();
+        }
+    </script>
+    </body>
+</html>

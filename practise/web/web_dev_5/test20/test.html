@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Compute day occurences of your birthday</title>
+  <style>
+    table, th, td {
+   border: 1px solid black;
+  text-align:center;
+}
+  </style>
+</head>
+<body>
+  <label for="birthday">Your birthday: </label><input id="birthday" type="date" value="1965-04-16">
+  <p>Please enter a starting and an ending year, then click the button.</p>
+  <label for="start">Start year:</label>
+  <input type=number id="start" value=2017 min=1965 max=3000>
+  <p></p>
+  <label for="end">End year:</label>
+  <input type=number id="end" value=2047 min=1965 max=3000>
+  <p></p>
+  <button onclick="computeBirthdays();">
+    Compute how many times 
+    your birthday will occur, 
+    for each day of the week
+  </button>
+  <p></p>
+  <output id="results"></output>  
+  <script>
+
+    function computeBirthdays()
+    {
+        var days = [0,0,0,0,0,0,0];
+        var birthday = document.querySelector("#birthday").value;
+
+        //birthday into date object
+        var birthdayAsDate = new Date(birthday);
+        console.log(birthdayAsDate);
+        //birthday month
+        var month = birthdayAsDate.getMonth();
+        //birthday day
+        var day = birthdayAsDate.getDate();
+
+        var startYear = document.querySelector("#start").value;
+        var endYear = document.querySelector("#end").value;
+
+        for (var year = startYear; year <= endYear; year++) 
+        {
+            var dayOfTheWeekMyBirthDayOccurs = new Date(year, month - 1, day).getDay();
+            //getting the name of the day
+            getDayName(dayOfTheWeekMyBirthDayOccurs);
+
+            //incrementing the count for that day
+            days[dayOfTheWeekMyBirthDayOccurs]++;
+        }
+
+        displayResults(days);
+       
+    }
+
+    function getDayName(dayIndex)
+    {
+        var daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        return daysOfWeek[dayIndex];
+    }
+
+    function displayResults(array)
+    {
+        document.querySelector('#results').innerHTML = '<p>Occurences of your birthday</p>';
+
+        var table = document.createElement('table');
+        var firstRow = table.insertRow();
+        var secondRow = table.insertRow();
+
+        array.forEach(function(dayOccurance, index)
+        {
+            var nameCell = firstRow.insertCell(index);
+            nameCell.innerHTML = getDayName(index);
+
+            var numberCell = secondRow.insertCell(index);
+            numberCell.innerHTML = dayOccurance;
+        })
+
+        document.querySelector('#results').appendChild(table);
+    }
+    
+  </script>
+</body>
+</html>
