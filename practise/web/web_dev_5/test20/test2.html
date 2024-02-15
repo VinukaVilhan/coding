@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Working with remote data suing XhR2</title>
+  <meta charset="utf-8"/>
+  <style>
+    table {
+  margin-top: 20px;
+}
+table, tr, td {
+  border: 1px solid;
+} 
+  </style>
+</head>
+<body>
+  <p>Working with remote data suing XhR2</p>
+  <button onclick="search();">Get a remote list of users' names and emails</button>
+  <div id="users"></div>
+  <script>
+    function search()
+    {
+        var URL = "https://jsonplaceholder.typicode.com/users";
+        var xhr = new XMLHttpRequest();
+        xhr.open ('GET', URL, true);
+
+        xhr.onload = function(e)
+        {
+            var jsonResponse = xhr.response;
+             // turn the response into a JavaScript object
+            var users = JSON.parse(jsonResponse);
+            displayAsATable(users);
+        }
+
+        xhr.onerror = function(err)
+        {
+            console.log("Error: "+err);
+        }
+
+        // sends the request
+        xhr.send();
+    }
+
+    function displayAsATable(users)
+    {
+        var user = document.querySelector('#users');
+        user.innerHTML = '';
+
+        var table = document.createElement('table');
+
+        users.forEach(function(currentUser)
+        {
+            //create a row
+            var row = table.insertRow();
+            //insert cells in the row
+            var nameCell = row.insertCell();
+            nameCell.innerHTML = currentUser.name;
+            var cityCell = row.insertCell();
+            cityCell.innerHTML = currentUser.address.city;
+        });
+
+        user.appendChild(table);
+    }
+
+  </script>
+</body>
+</html>
+
