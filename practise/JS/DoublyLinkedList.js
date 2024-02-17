@@ -92,10 +92,73 @@ class doublyLinkedList
         this.length--;
         return currentHead;
     }
+
+    //enter an node at the beginning of the list
+    unshift(val)
+    {
+        //create a new node
+        var newNode = new Node(val);
+        
+        if(this.length === 0)
+        {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+        else
+        {
+            //set the previous property of the head to be the new node
+            this.head.prev = newNode;
+            //set the next property of the new node to be the head propert
+            newNode.next = this.head;
+            //update the head to the new node
+            this.head  = newNode;
+        }
+
+        this.length++;
+        return this;
+    }
+
+    //returns the element at given index
+    get(index)
+    {
+        if(index < 0 || index >= this.length)
+        {
+            return null;
+        }
+
+        let current ;
+        if(index <= this.length / 2)
+        {
+            current = this.head;
+            for(let i = 0; i < this.length; i++)
+            {
+                if( i === index)
+                {
+                    return current.val;
+                }
+                //update the element
+                current = current.next;
+            }
+        }
+        else if(index > this.length/2)
+        {
+            current = this.tail
+            for(let i = this.length -1 ; i > this.length / 2; i--)
+            {
+                if( i === index)
+                {
+                    return current.val;
+                }
+                //update the element
+                current = current.prev;
+            }
+        }
+    }
 }
 
 var list = new doublyLinkedList();
-list.push('yo')
-list.push('are')
-list.shift()
-console.log(list)
+list.unshift('vinuka')
+list.push('Vilhan')
+list.push('fernando')
+list.push('pulle')
+console.log(list.get(2))

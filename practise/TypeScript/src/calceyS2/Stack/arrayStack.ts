@@ -1,10 +1,12 @@
 import Stack from './stack'
-
+//<T> is a generic type parameter which indicates that it could work with any type
 class ArrayStack<T> implements Stack <T>
 {
+    //creating an array to store the data
     private stackItems: T[]=[];
 
     //- private , + public, #protected
+    //Takes one parameter item of type T
     public push(item: T): void
     {
         this.stackItems.push(item);
