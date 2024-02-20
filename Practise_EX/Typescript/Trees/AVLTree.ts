@@ -29,7 +29,7 @@ class AVLTree
         this.root  = this.insertData(this.root, key);
     }
 
-    private insertData(node: AVLNode | null, key:number): AVLNode
+    private insertData(node: AVLNode | null, key:number): AVLNode //O (log(n))
     {
         //tree insertion logic
         if(!node)
@@ -92,7 +92,7 @@ class AVLTree
         return node;
     }
 
-    private rightRotate(node: AVLNode): AVLNode
+    private rightRotate(node: AVLNode): AVLNode // O(1)
     {
         let x: AVLNode = node.left as AVLNode;
 
@@ -108,7 +108,7 @@ class AVLTree
         return x;
     }
 
-    private leftRotate(node: AVLNode): AVLNode
+    private leftRotate(node: AVLNode): AVLNode // O(1)
     {
         let x: AVLNode = node.right as AVLNode;
 
