@@ -2,7 +2,7 @@ import TreeNode from "./TreeNode";
 
 class BinarySearchTree
 {
-    root: TreeNode | null;
+    public root: TreeNode | null;
     constructor()
     {
         this.root = null;
@@ -37,7 +37,9 @@ class BinarySearchTree
     {
         if(node)
         {
-            
+            this.inorderTraversal(node.left);//left child
+            console.log(node.getKey());//root node
+            this.inorderTraversal(node.right);//right node
         }
     }
 }

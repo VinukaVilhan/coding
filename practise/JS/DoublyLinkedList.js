@@ -127,38 +127,117 @@ class doublyLinkedList
         }
 
         let current ;
-        if(index <= this.length / 2)
+        if(index === this.length - 1)
+        {
+            return this.tail;
+        }
+        else if(index <= this.length / 2)
         {
             current = this.head;
-            for(let i = 0; i < this.length; i++)
+            for(let i = 0; i < index; i++)
             {
-                if( i === index)
-                {
-                    return current.val;
-                }
                 //update the element
                 current = current.next;
             }
         }
-        else if(index > this.length/2)
+        else(index > this.length/2)
         {
             current = this.tail
-            for(let i = this.length -1 ; i > this.length / 2; i--)
+            for(let i = this.length -1 ; i > index; i--)
             {
-                if( i === index)
-                {
-                    return current.val;
-                }
                 //update the element
                 current = current.prev;
             }
         }
+        return current;
+    }
+
+    //set a new value for the node
+
+    set(index, val)
+    {
+        var replace = this.get(index);
+
+        if(replace != null)
+        {
+            replace.val = val;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+        
+    }
+
+    insert(index , val)
+    {
+
+        if(index < 0 || index > this.length) return undefined;
+
+        if(index === 0)
+        {
+            return this.unshift(val);
+        }
+
+        if(index === this.length)
+        {
+            return this.push(val);
+        }
+
+        var newNode = new Node(val);
+
+        var earlyPosition = this.get(index - 1);
+        var currentIndex = this.get(index);
+        
+        //previous connection
+        earlyPosition.next = newNode;
+        newNode.prev = earlyPosition;
+        
+        //next connection 
+        newNode.next = currentIndex;
+        currentIndex.prev = newNode;
+        this.length++;
+        return true;
+    }
+
+    remove(index)
+    {
+        if(index < 0 || index > this.length) return undefined;
+
+        if(index === 0)
+        {
+            return this.shift();
+        }
+
+        if(index === this.length - 1)
+        {
+            return this.pop();
+        }
+
+        var remove = this.get(index)
+        var previous  = this.get(index - 1);
+        var next = this.get(index + 1);
+        //previous node setting
+        previous.next = next;
+
+        //next node setiing
+        next.prev = previous;
+
+        //setting prevoius and next elemnts of the current node to null
+        remove.next = null;
+        remove.prev = null;
+
+        this.length --;
+
+        return remove;
+
     }
 }
 
 var list = new doublyLinkedList();
-list.unshift('vinuka')
+
 list.push('Vilhan')
-list.push('fernando')
-list.push('pulle')
-console.log(list.get(2))
+list.push("vilhan")
+console.log(list.get(1).val)
+
