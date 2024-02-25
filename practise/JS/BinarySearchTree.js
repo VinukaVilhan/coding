@@ -103,10 +103,100 @@ class BinarySearchTree
             else if (current.value  === val)
             {
                 found = true;
-                return current.value;
+                return current;
             }
         }
+        return false;
     }
+
+    remove(value) 
+    {
+        if(this.root === null) 
+        {
+          return false;
+        }
+      
+        // Find the target node and its parent
+        let target = this.root;
+        let parent = null;
+      
+        // Search for the target node and its parent
+        while(target && target.value !== value) {
+          parent = target;
+          if(value < target.value) {
+            target = target.left;
+          } else {
+            target = target.right;
+          }
+        }
+      
+        if (target) {
+          // Handle cases based on the target node's number of children:
+          if (target.left === null && target.right === null) 
+          { // Leaf node
+            // If root, set root to null; otherwise, update parent's child pointer
+            if (target === this.root) 
+            {
+              this.root = null;
+            } 
+            else if (parent.left === target) 
+            {
+              parent.left = null;
+            } 
+            else 
+            {
+              parent.right = null;
+            }
+          } 
+          else if (target.left === null || target.right === null) 
+          { // One child
+            // Promote the child to replace the target
+            //if there is a left.child then it's assigned to child otherwise right.child is assigned to child
+            let child = target.left ? target.left : target.right;
+            
+            // The child replaces the root
+            if (target === this.root) 
+            {
+              this.root = child;
+            } 
+            else if (parent.left === target) 
+            {
+              parent.left = child;
+            } 
+            else 
+            {
+              parent.right = child;
+            }
+          } 
+          else 
+          { // Two children
+            // Find the in-order successor (smallest node in the right subtree)
+            let successor = target.right;
+            let successorParent = target;
+            while (successor.left) {
+              successorParent = successor;
+              successor = successor.left;
+            }
+      
+            // Copy successor's value to target node
+            target.value = successor.value;
+      
+            // If successor has a right child, promote it
+            if (successorParent === target) {
+              successorParent.right = successor.right;
+            } else {
+              successorParent.left = successor.right;
+            }
+          }
+          return true; // Return true if the node was found and removed
+        } 
+        else 
+        {
+          return false; // Return false if the node was not found
+        }
+      }
+      
+      
     
     // In-order traversal
     // This method visits all the nodes of a BST in ascending order
@@ -117,18 +207,98 @@ class BinarySearchTree
             this.inOrder(node.right); // recursively go to the right child
         }
     }
+
+    //breadth first search
+    BFS()
+    {
+        //two arrays
+        var data = [], queue = [];
+        var node = this.root;
+
+        queue.push(node);
+        //iterates while there is something in the queue
+        while(queue.length )
+        {
+            //moves the first element
+            node = queue.shift();
+            data.push(node);
+            if(node.left )queue.push(node.left);
+            if(node.right)queue.push(node.right);
+        }
+        return data;
+    }
+
+    DFSPreOrder()
+    {
+        var data = [];
+        var current = this.root;
+
+        function traverse(node)
+        {
+            data.push(node);
+            if(node.left)traverse(node.left);
+            if(node.right)traverse(node.right);
+        }
+
+        //invoke the helper function with the current variable
+        traverse(current);
+
+        //return array of values
+        return data;
+    }
+
+    DFSPostOrder()
+    {
+        //visited nodes
+        var data = [];
+        //root is stored
+        var current = this.root;
+
+        function traverse(node)
+        {
+            if(node.left)traverse(node.left);
+            if(node.right)traverse(node.right);
+            data.push(node);
+        }
+        //invoke function
+        traverse(current);
+        return data;
+    }
+
+    DFSInOrder()
+    {
+        var visited = [];
+        var current = this.root;
+
+        function traverse(node)
+        {
+            if(node.left)traverse(node.left);
+            visited.push(node);
+            if(node.right)traverse(node.right);
+        }
+        //invoke function
+        traverse(current);
+        return visited;
+    }
 }
 
 // Create a new Binary Search Tree
 var tree = new BinarySearchTree();
 
 tree.insert(10)
+tree.insert(6)
 tree.insert(15)
-tree.insert(2)
+tree.insert(3)
 tree.insert(8)
-console.log(tree.find(2))
-console.log(tree.find(7))
-console.log(tree)
+tree.insert(20)
+
+
+console.log(tree.remove(15))
+console.log(tree.find(15))
+console.log(tree.BFS())
+console.log(tree.DFSPreOrder())
+console.log(tree.DFSPostOrder())
+
 
 
 
@@ -138,5 +308,4 @@ console.log(tree)
 //tree.root.left = new Node(5)
 //tree.root.left.right = new Node(8);
 
-// Print the tree using in-order traversal
-tree.inOrder();
+
