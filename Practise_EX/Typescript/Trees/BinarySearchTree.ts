@@ -42,6 +42,23 @@ class BinarySearchTree
             this.inorderTraversal(node.right);//right node
         }
     }
+
+    public postorderTraversal(node: TreeNode | null): void {
+        if (node) {
+          this.postorderTraversal(node.left); // Left child
+          this.postorderTraversal(node.right); // Right child
+          console.log(node.getKey()); // Visit the root after processing children (post-order)
+        }
+      }
+    
+    // Added Preorder Traversal
+    public preorderTraversal(node: TreeNode | null): void {
+        if (node) {
+          console.log(node.getKey()); // Visit the root before processing children (pre-order)
+          this.preorderTraversal(node.left); // Left child
+          this.preorderTraversal(node.right); // Right child
+        }
+      }
 }
 
 export default BinarySearchTree;

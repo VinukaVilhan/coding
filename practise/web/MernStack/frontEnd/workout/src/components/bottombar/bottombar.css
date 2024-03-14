@@ -1,0 +1,8 @@
+.row{
+    margin: 2em;
+    width:100%;
+    bottom:0;
+    position:fixed;
+    align-items: center;
+    border:1px solid black;
+}

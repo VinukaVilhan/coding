@@ -27,6 +27,21 @@ var BinarySearchTree = /** @class */ (function () {
             this.inorderTraversal(node.right); //right node
         }
     };
+    BinarySearchTree.prototype.postorderTraversal = function (node) {
+        if (node) {
+            this.postorderTraversal(node.left); // Left child
+            this.postorderTraversal(node.right); // Right child
+            console.log(node.getKey()); // Visit the root after processing children (post-order)
+        }
+    };
+    // Added Preorder Traversal
+    BinarySearchTree.prototype.preorderTraversal = function (node) {
+        if (node) {
+            console.log(node.getKey()); // Visit the root before processing children (pre-order)
+            this.preorderTraversal(node.left); // Left child
+            this.preorderTraversal(node.right); // Right child
+        }
+    };
     return BinarySearchTree;
 }());
 exports.default = BinarySearchTree;

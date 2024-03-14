@@ -36,10 +36,12 @@ class AVLTree
         {
             return new AVLNode(key);
         }
+        //if the value we enter (key) is less than the key we refer to it goes to the left side
         else if(key < node.getKey())
         {
             node.left = this.insertData(node.left, key);
         }
+        //if the value we enter (key) is greater than the key we refer to it goes to the right side
         else if(key > node.getKey())
         {
             node.right = this.insertData(node.right, key);
@@ -55,10 +57,11 @@ class AVLTree
 
         //balancing logic
         let balance:number = this.getBalanceFactor(node);
+
         //left heavy [2 - 1 = 1]
         if(balance > 1)
         {
-            //right notation should be implemented
+            //right rotation should be implemented
             let select = node.left as AVLNode;//typecast in typescript
             if(key < select.getKey())
             {
@@ -133,6 +136,23 @@ class AVLTree
             this.inorderTraversal(node.right);//right node
         }
     }
+
+    public postorderTraversal(node: AVLNode | null): void {
+        if (node) {
+          this.postorderTraversal(node.left); // Left child
+          this.postorderTraversal(node.right); // Right child
+          console.log(node.getKey()); // Visit the root after processing children (post-order)
+        }
+      }
+    
+    // Added Preorder Traversal
+    public preorderTraversal(node: AVLNode | null): void {
+        if (node) {
+          console.log(node.getKey()); // Visit the root before processing children (pre-order)
+          this.preorderTraversal(node.left); // Left child
+          this.preorderTraversal(node.right); // Right child
+        }
+      }
 }
 
 export default AVLTree;
