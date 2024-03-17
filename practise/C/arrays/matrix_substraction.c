@@ -55,7 +55,7 @@ int main()
         }
     }
 
-    //add the matrices if the matrices match
+    //substract the matrices if the matrices match
     if(columns1 == columns2 && rows1 == rows2)
     {
         substractMatrix(rows1, columns1, rows2, columns2, firstArray, secondArray, resultArray);

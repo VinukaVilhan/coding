@@ -26,7 +26,7 @@ int main()
     //initialize the 2d array
     int firstArray[rows1][columns1];
     int secondArray[rows2][columns2];
-    int resultArray[rows1][columns1];
+    int resultArray[rows1][columns2];
     //input values for each cell in the array
     
     //first matrix
@@ -56,10 +56,10 @@ int main()
     }
 
     //add the matrices if the matrices match
-    if(columns1 == columns2 && rows1 == rows2)
+    if(columns1 == rows2)
     {
         multiplyMatrix(rows1, columns1, rows2, columns2, firstArray, secondArray, resultArray);
-        printMatrix(rows1, columns1, resultArray);
+        printMatrix(rows1, columns2, resultArray);
     }
     else
     {
@@ -89,13 +89,21 @@ void printMatrix(int rows, int columns, int array[rows][columns])
 
 void multiplyMatrix(int rows1, int columns1, int rows2, int columns2, int firstArray[rows1][columns1], int secondArray[rows2][columns2], int resultArray[rows1][columns1])
 {
+    int sum = 0;
     //each row
     for(int x = 0; x < rows1; x++)
     {
         //each column
-        for(int y = 0; y < columns1; y++)
+        for(int y = 0; y < columns2; y++)
         {
-            resultArray[x][y] = firstArray[x][y] * secondArray[x][y];
+            resultArray[x][y] = 0;
+            sum = 0;
+            for(int z = 0; z < columns1; z++)
+            {
+                sum += firstArray[x][z] * secondArray[z][y] ;
+                resultArray[x][y] = sum;
+            }
+            
         }
         printf("\n");
     }
