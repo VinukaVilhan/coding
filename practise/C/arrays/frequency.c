@@ -42,6 +42,7 @@ void findAndUp(int key)
 int main()
 {
     char string[5000];
+    printf("Enter the number: ");
 
     fgets(string, sizeof(string), stdin);
 
@@ -52,6 +53,7 @@ int main()
     int length = strlen(string);
     for(int x = 0; x < length; x++)
     {
+        
         //convert the character to the number
         int converted = string[x] - '0';
         if(converted >=0 && converted <=9)
