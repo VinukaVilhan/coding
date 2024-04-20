@@ -1,0 +1,23 @@
+body, button{font-family: "Jersey 25";}
+
+.jersey-25-regular {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 400;
+    font-style: bold;
+  }
+  
+#section1{
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height:60vh;
+}
+  
+body{background-color: #2d5d62;}
+button{background-color: #bd617c; transition:0.25s;}
+
+button:hover{
+    border-color: #ECD2DA;
+    box-shadow: 0.1125em 0.125em #ECD2DA;
+    transform:translateY(0.25em);
+}
